@@ -8,7 +8,7 @@ Al correr
 ln /a/b/Main.java /JavaFiles
 ```
 
-se crea un archivo clon (no es una copia) del Main.java, esto implica que si se modifica Main.java en
+se crea un archivo clon (no es una copia) de Main.java, esto implica que si se modifica Main.java en
 /a/b o en /JavaFiles, ambos archivos se modifican a la vez. Sin embargo, si se elimina uno, el otro NO
 se elimina, entonces para eliminar todos los clones, hace falta eliminar cada uno de ellos.
 
@@ -26,7 +26,7 @@ symbolic link solo apunte al archivo original, más no es el mismo y mucho menos
 
 ## git y los hard & symbolic links
 
-En este contexto, si commiteamos un symbolic links, solo estaremos haciendo un commit del PATH del archivo 
+En este contexto, si commiteamos un symbolic link, solo estaremos haciendo un commit del PATH del archivo 
 original, es por ello que no se recomienda. Por otro lado Git reconoce los hard links y los commitea como si
 fuesen originales. Conclusion -> Usar hard links en Git
 
