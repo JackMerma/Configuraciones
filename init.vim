@@ -4,8 +4,9 @@ call plug#begin('~/.vim/plugged')
 													"otras ideas
 													"https://github.com/cormacrelf/vim-colors-github
 													"https://github.com/pineapplegiant/spaceduck
-Plug 'pineapplegiant/spaceduck', { 'branch': 'main' } "super tema
-Plug 'dracula/vim'							"tema de dracula
+"Plug 'pineapplegiant/spaceduck', { 'branch': 'main' } "super tema
+"Plug 'dracula/vim'							"tema de dracula
+Plug 'morhetz/gruvbox'
 
 
 Plug 'Yggdroot/indentLine' 				"indentacion
@@ -74,17 +75,20 @@ inoremap <silent> <Esc> <Esc>`^
 
 "configuracion del tema
 set termguicolors 			"activa el true color en la terminal
-colorscheme dracula
-let g:lightline = {'colorscheme': 'dracula'}
-"nmap <space>1 :colorscheme onedark<CR>
-"nmap <space>2 :colorscheme dayfox<CR>
+"let g:lightline = {'colorscheme': 'dracula'}
+nmap <space>1 :set bg=light<CR>
+nmap <space>2 :set bg=dark<CR>
 
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 "configuracion de vim-airline
 let g:airline#extensions#tabline#enabled = 1	"muestra la linea de pestaña en la que estamos buffer
 let g:airline#extensions#tabline#formatter = 'unique_tail'	"muestra solo el nombre del archivo que estamos modificando
-let g:airline_theme='dracula'
+""let g:airline_theme='dracula'
+
+"configuracion  del tema
+let g:gruvbox_termcolors=16
+colorscheme gruvbox
 
 
 "configuracion de nerdtree
