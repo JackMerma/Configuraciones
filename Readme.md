@@ -1,5 +1,8 @@
 # Configuraciones
 
+
+# Recomendaciones para sus archivos de configuracion
+
 ## ¿como usar un hard link?
 
 Al correr
@@ -29,12 +32,3 @@ symbolic link solo apunte al archivo original, más no es el mismo y mucho menos
 En este contexto, si commiteamos un symbolic link, solo estaremos haciendo un commit del PATH del archivo 
 original, es por ello que no se recomienda. Por otro lado Git reconoce los hard links y los commitea como si
 fuesen originales. Conclusion -> Usar hard links en Git
-
-
-## hard link para este archivo init.vim
-
-Ejecute los comandos (suponiendo que tiene este archivo en su Home (~))
-
-```
-ln init.vim .config/nvim/ 
-```
