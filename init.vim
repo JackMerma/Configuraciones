@@ -42,7 +42,7 @@ set sw=3 						"la indentación genera 4 espacios
 set tabstop=3
 set nowrap						"el texto en una linea no baja a la siguiente, solo continua en la misma hasta el infinito.
 ""set noswapfile				"para evitar el mensaje que sale al abrir algunos archivos sobre swap.
-set clipboard=unnamed		"para poder utilizar el portapapeles del sistema operativo 'esto permite poder copiar y pegar desde cualquier parte a nvim y viceversa.	
+set clipboard=unnamedplus	"para poder utilizar el portapapeles del sistema operativo 'esto permite poder copiar y pegar desde cualquier parte a nvim y viceversa.	
 "set numberwidth=
 set showcmd
 "set paste
@@ -51,49 +51,15 @@ set laststatus=2
 set t_Co=256
 filetype indent on
 set autoindent
-set visualbell
+set visualbell					"sonidos que hace vim
 
 "set splitbelow
 set splitright					"file a la derecha
-set ignorecase
+"set ignorecase
 set linebreak
 set scrolloff=7				"20 lineas y no baja
-
-
-
-"shortcuts para escritura
-inoremap " ""<left>
-inoremap ' ''<left>
-"inoremap ( ()<left>
-"inoremap [ []<left>
-
-"autocierre de llaves
-inoremap {<CR> {<CR>}<ESC>O
-
-"Esc y modo inserción en el mismo lugar
-inoremap <silent> <Esc> <Esc>`^
-
 "configuracion del tema
 set termguicolors 			"activa el true color en la terminal
-"let g:lightline = {'colorscheme': 'dracula'}
-nmap <space>1 :set bg=light<CR>
-nmap <space>2 :set bg=dark<CR>
-
-"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-"configuracion de vim-airline
-let g:airline#extensions#tabline#enabled = 1	"muestra la linea de pestaña en la que estamos buffer
-let g:airline#extensions#tabline#formatter = 'unique_tail'	"muestra solo el nombre del archivo que estamos modificando
-""let g:airline_theme='dracula'
-
-"configuracion  del tema
-let g:gruvbox_termcolors=16
-colorscheme gruvbox
-
-
-"configuracion de nerdtree
-nmap <space>t :NERDTreeFind<CR>
-"autocmd VimEnter * NERDTree
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -117,6 +83,64 @@ else
   set signcolumn=yes
 endif
 
+
+"shortcuts para escritura
+inoremap " ""<left>
+inoremap ' ''<left>
+"inoremap ( ()<left>
+"inoremap [ []<left>
+
+"autocierre de llaves
+inoremap {<CR> {<CR>}<ESC>O
+
+"para comentarios grandes
+autocmd filetype cpp inoremap /** /**<cr>/<esc>O 
+autocmd filetype java inoremap /** /**<cr>/<esc>O 
+
+"Esc y modo inserción en el mismo lugar
+inoremap <silent> <Esc> <Esc>`^
+
+"let g:lightline = {'colorscheme': 'dracula'}
+nmap <space>1 :set bg=light<CR>
+nmap <space>2 :set bg=dark<CR>
+"mapeos
+nmap <space>w :w<CR>
+nmap <space>q :q<CR>
+nmap <space>Q :q!<CR>
+nmap <space>wq :wq<CR>
+nmap <space>c :%y+<CR>
+"nmap <space> j:vsplit<CR>:term<CR>
+"nmap <space>j :vertical term<CR>
+
+	"saltos
+nmap <c-h> <c-w>h	
+nmap <c-l> <c-w>l	
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+
+	"saltos en buffers
+nmap <c-left> :bprev<CR>
+nmap <c-right> :bnext<CR>
+nmap <c-x> :bdelete<CR>
+
+"que no haga nada ctrl + z
+"nmap <c-z> <nop>
+
+"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+"configuracion de vim-airline
+let g:airline#extensions#tabline#enabled = 1	"muestra la linea de pestaña en la que estamos buffer
+let g:airline#extensions#tabline#formatter = 'unique_tail'	"muestra solo el nombre del archivo que estamos modificando
+""let g:airline_theme='dracula'
+
+"configuracion  del tema
+let g:gruvbox_termcolors=16
+colorscheme gruvbox
+
+"configuracion de nerdtree
+nmap <space>t :NERDTreeFind<CR>
+"autocmd VimEnter * NERDTree
+
 "ruta de busqueda para templates - Plugin
 let g:tmpl_search_paths = ['~\templates']
 "configuraciones
@@ -132,7 +156,10 @@ let g:minimap_auto_start_win_enter = 1
 
 "floaterm Configuracion
 "let g:floaterm_autoclose=2
-"nmap <c-z> :FloatermNew --width=1.0 --height=1.0 --autoclose=2<CR>
+nmap <c-z> :FloatermNew --width=1.0 --height=1.0 --autoclose=2<CR>
+
+
+
 
 
 "::::::::::::::::::::::::::::::::::::::::shortcuts para compilacion y ejecucion:::::::::::::::::::::::::::::::::::::::::::::"
@@ -170,30 +197,3 @@ let g:minimap_auto_start_win_enter = 1
 
 "bash----------------------------------------------------------
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-"mapeos
-nmap <space>w :w<CR>
-nmap <space>q :q<CR>
-nmap <space>Q :q!<CR>
-nmap <space>wq :wq<CR>
-nmap <space>c :%y+<CR>
-nmap <space> j:vsplit<CR>:term<CR>
-"nmap <space>j :vertical term<CR>
-
-	"saltos
-nmap <c-h> <c-w>h	
-nmap <c-l> <c-w>l	
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-
-	"saltos en buffers
-nmap <c-left> :bprev<CR>
-nmap <c-right> :bnext<CR>
-nmap <c-x> :bdelete<CR>
-
-"que no haga nada ctrl + z
-"nmap <c-z> <nop>
-
-
-"para comentarios grandes
-autocmd filetype cpp inoremap /** /**<cr>/<esc>O 
