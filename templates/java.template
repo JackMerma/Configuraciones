@@ -7,5 +7,17 @@ class {{FILE}} {
 	public static void main(String [] args){
 		//code
 	}
+
+	public static <T> void print(T dat){
+		System.out.println(dat);
+	}
+	public static <T> void print(T dat[]){
+		for(int i=0;i<dat.length;i++)
+			System.out.print(dat[i]+" ");
+		System.out.println();
+	}
+	public static <T> void print(String f, T val){
+		System.out.format(f,val);
+	}
 }
 

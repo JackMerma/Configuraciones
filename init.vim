@@ -164,6 +164,11 @@ let g:minimap_auto_start_win_enter = 1
 
 "java compiling and running----------------------------------------------------------
 
+"bash----------------------------------------------------------
+
+	autocmd filetype sh nmap<F5> :w<bar>!sh %<CR>
+
+"bash----------------------------------------------------------
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 "mapeos
@@ -172,7 +177,8 @@ nmap <space>q :q<CR>
 nmap <space>Q :q!<CR>
 nmap <space>wq :wq<CR>
 nmap <space>c :%y+<CR>
-nmap <space>j :vertical term<CR>
+nmap <space> j:vsplit<CR>:term<CR>
+"nmap <space>j :vertical term<CR>
 
 	"saltos
 nmap <c-h> <c-w>h	
